@@ -1,0 +1,71 @@
+ <% if current_user.id == params["id"].to_i %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= current_user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= current_user.email %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= current_user.bio %>
+</p>
+
+<p>
+  <strong>Photo url:</strong>
+  <img src="<%=@current_page.photo_url %>">
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= current_user.balance %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(current_user) %>
+
+<%= link_to 'Make a Bet', users_path %>
+
+  <p>
+    <a href="/logout"> Logout</a>
+  </p>
+
+<% else %>
+
+<h1><%= @current_page.name %></h1>
+
+<p>
+  <strong>Email:</strong>
+  <%= @current_page.email %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @current_page.bio %>
+</p>
+
+<p>
+  <strong>Photo url:</strong>
+ <img src="<%=@current_page.photo_url %>">
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= @current_page.balance %>
+</p>
+
+   <p>
+    <a href="/users/<%= current_user.id %>">My Profile</a>
+  </p>
+
+<% end %>
+
+  <p>
+    <a href="/home/index"> Home</a>
+  </p>
+

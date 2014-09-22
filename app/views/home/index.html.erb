@@ -1,0 +1,23 @@
+<h1>Hello World</h1>
+
+
+  <% if logged_in? %>
+
+  <p>Hi, <%= current_user.name %>!</p>
+
+  <p><a href="/users/<%= current_user.id %>">My Profile</a></p>
+  <%= link_to 'Make a Bet', users_path %>
+
+ <p>
+    <a href="/logout"> Logout</a>
+  </p>
+
+  <% else %>
+  <p>
+    <a href="/users/new">Sign Up</a>
+  </p>
+  <p>
+    <a href="/session/new">Login</a>
+  </p>
+
+  <% end %>
